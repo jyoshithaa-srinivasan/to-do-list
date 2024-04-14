@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="to-do-list.css">
         <title>
 
         </title>
     </head>
     <body>
         <p>Todo List</p>
-        <input placeholder="Todo name" class="js-name-input">
-        <input type="date" class="js-date-input">
-       
-        <button onclick="
-         adTodo();
-        ">Add</button>
+        <div class="todo-input-grid">
+            <input placeholder="Todo name" class="js-name-input name-input">
+            <input type="date" class="js-date-input date-input">
+        
+            <button onclick="
+            adTodo();
+            " class="add-todo-button">Add</button>
+        </div>
 
-        <div class="js-todo-list"></div>
+        <div class="js-todo-list todo-grid"></div> 
+        <!--this is the element inside which we ll add our list elements , the name and dates-->
 
         <script src="to-do-list.js"></script>
 

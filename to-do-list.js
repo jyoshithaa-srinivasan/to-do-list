@@ -44,13 +44,18 @@ function renderTodoList(){ //displaying
         const dueDate=todoObject.dueDate;
         //template strings as multiline strings
         const html=`                 
-        <p>
-            ${name} ${dueDate}
-            <button onclick="
-                todoList.splice(${i},1);
-                renderTodoList();         
-            ">DELETE</button>
-        </p>`; //GENERATING HTML through javascript loop
+        <div> ${name}</div>    
+        <div>
+            ${dueDate}
+        </div>
+        <button onclick="
+            todoList.splice(${i},1);
+            renderTodoList();         
+        " class="delete-todo-button">DELETE</button>
+        `; //GENERATING HTML through javascript loop
+        //first div ll work as 1st column
+        //second div ll work as 2nd column
+        //button ll work as 3rd column in CSS GRID
         todoListHTML+=html;
         
 
