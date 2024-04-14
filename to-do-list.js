@@ -1,6 +1,7 @@
 const todoList=[];
 renderTodoList();
-function addTodo(){
+
+function adTodo(){
     const inputElement=document.querySelector('.js-name-input');
     const name=inputElement.value;
     todoList.push(name);
@@ -15,10 +16,11 @@ function renderTodoList(){
     let todoListHTML='';
     for(let i=0;i<todoList.length;i++){
         const todo=todoList[i];
-        const html=`<p>${todo}</p>`; //GENERATING HTML through javascript loop
+        const html=`<p>${todo}<button>DELETE</button></p>`; //GENERATING HTML through javascript loop
         todoListHTML+=html;
-        document.querySelector('.js-todo-list').innerHTML=todoListHTML;
+        
 
     }
+    document.querySelector('.js-todo-list').innerHTML=todoListHTML;
 
 }
