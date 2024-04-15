@@ -1,4 +1,4 @@
-const todoList=[
+const todoList=JSON.parse(localStorage.getItem('todoList'))||[
 
     {name:'make dinner',
      dueDate:'2022-12-22'
@@ -25,17 +25,28 @@ function adTodo(){
     
     }
     todoList.push(inputObject);
+    //localStorage.setItem('todoListArray',JSON.stringify(todoList));
+    
     console.log(todoList);
     inputNameElement.value='';
     inputDateElement.value='';
     //resets the text in the textbox on clicking add button
 
     renderTodoList();
+    saveToStorage();
    
 }
-function renderTodoList(){ //displaying
+
+function renderTodoList(){
+     //let fetchArray=todoList;
+    //if(localStorage.getItem('todoListArray')!=null){
+     //fetchArray=JSON.parse(localStorage.getItem('todoListArray'));}
+    //displaying
+    
     let todoListHTML='';
+    //for(let i=0;i<fetchArray.length;i++){
     for(let i=0;i<todoList.length;i++){
+        //const todoObject=fetchArray[i];
         const todoObject=todoList[i];
         const name=todoObject.name;
         //SHORTCUT
@@ -50,7 +61,9 @@ function renderTodoList(){ //displaying
         </div>
         <button onclick="
             todoList.splice(${i},1);
-            renderTodoList();         
+
+            renderTodoList();    
+            saveToStorage();
         " class="delete-todo-button">DELETE</button>
         `; //GENERATING HTML through javascript loop
         //first div ll work as 1st column
@@ -62,4 +75,8 @@ function renderTodoList(){ //displaying
     }
     document.querySelector('.js-todo-list').innerHTML=todoListHTML;
 
+}
+
+function saveToStorage(){
+    localStorage.setItem('todoList',JSON.stringify(todoList));
 }
